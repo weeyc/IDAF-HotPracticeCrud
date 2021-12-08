@@ -39,4 +39,33 @@ class PullController extends Controller
 
 
      }
+
+     public function createStudent(Request $request){
+         Student::create($request->all());
+        return redirect('/')->with('success', 'New data successfully inserted');
+
+     }
+
+     public function editStudent($id){
+        $data_student = Student::find($id) ;
+
+        return view('edit', compact('data_student'));
+
+
+     }
+
+     public function updateStudent(Request $request, $id){
+        $data_student = Student::find($id) ;
+        $data_student -> update($request->all());
+        return redirect('/')->with('success', 'User data successfully updated');
+
+
+     }
+     public function deleteStudent($id){
+        $data_student = Student::find($id) ;
+        $data_student -> delete($data_student);
+        return redirect('/')->with('success', 'Data successfully deleted');
+
+
+     }
 }

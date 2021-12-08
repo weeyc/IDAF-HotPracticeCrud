@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/',[PullController::class, 'getStudent'])->name('filter');
+Route::post('/create_student',[PullController::class, 'createStudent'])->name('createStudent');
+Route::post('/update_student/{id}',[PullController::class, 'updateStudent'])->name('updateStudent');
+Route::get('/edit/{id}',[PullController::class, 'editStudent'])->name('editStudent');
+Route::get('/delete/{id}',[PullController::class, 'deleteStudent'])->name('deleteStudent');
 
 
 
